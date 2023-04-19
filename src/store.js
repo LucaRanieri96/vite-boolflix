@@ -14,7 +14,7 @@ export const store = reactive({
     "fr": "/src/assets/imgs/fr.png",
     "ru": "/src/assets/imgs/ru.png",
     "ko": "/src/assets/imgs/kr.webp",
-    "jp": "/src/assets/imgs/jp.webp",
+    "ja": "/src/assets/imgs/jp.webp",
     "sv": "/src/assets/imgs/se.png",
     "cn": "/src/assets/imgs/cn.webp",
   },
@@ -57,9 +57,9 @@ export const store = reactive({
   langToFlag(lang) {
     let flag = this.flags[lang];
     if (flag) {
-      return `<img src="${flag}">`;
+      return `<img src="${flag}" alt="${lang}">`;
     } else {
-      return "Bandiera non disponibile";
+      return lang;
     }
   }
 });
