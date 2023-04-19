@@ -11,35 +11,42 @@ export default {
   methods: {
     changeScore(score) {
       return Math.round(Number(score) / 2);
-    }
-  }
-  
+    },
+    starScore(score) {
+      const stars = Math.round(score / 2);
+      return stars;
+    },
+  },
 };
 </script>
 
 <template>
   <ul>
-      <li v-for="(movie, index) in store.fetchedMovies">
-        <p>---movie {{ index }}</p>
-        <img :src="`${store.coverUrl}${movie.poster_path}`">
-        <h3>Title: {{ movie.title }}</h3>
-        <p>Original title: {{ movie.original_title }}</p>
-        <div v-html="store.langToFlag(movie.original_language)"></div>
+    <li v-for="(movie, index) in store.fetchedMovies">
+      <p>---movie {{ index }}</p>
+      <img :src="`${store.coverUrl}${movie.poster_path}`" />
+      <h3>Title: {{ movie.title }}</h3>
+      <p>Original title: {{ movie.original_title }}</p>
+      <div v-html="store.langToFlag(movie.original_language)"></div>
+      <div>
         <p>Score: {{ changeScore(movie.vote_average) }}</p>
-      </li>
-    </ul>
-    <ul>
-      <li v-for="(tvshow, index) in store.fetchedTvShows">
-        <p>---tvshow {{ index }}</p>
-        <img :src="`${store.coverUrl}${tvshow.poster_path}`">
-        <h3>Title: {{ tvshow.name }}</h3>
-        <p>Original title: {{ tvshow.original_title }}</p>
-        <div v-html="store.langToFlag(movie.original_language)"></div>
-        <p>Score: {{ changeScore(tvShow.vote_average) }}</p>
-      </li>
-    </ul>
+        <span v-for="star in starScore(changeScore(movie.vote_average))" :key="star">⭐️</span>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li v-for="(tvshow, index) in store.fetchedTvShows">
+      <p>---tvshow {{ index }}</p>
+      <img :src="`${store.coverUrl}${tvshow.poster_path}`" />
+      <h3>Title: {{ tvshow.name }}</h3>
+      <p>Original title: {{ tvshow.original_title }}</p>
+      <div v-html="store.langToFlag(movie.original_language)"></div>
+      <div>
+        <p>Score: {{ changeScore(tvshow.vote_average) }}</p>
+        <span v-for="star in starScore(changeScore(tvshow.vote_average))" :key="star">⭐️</span>
+      </div>
+    </li>
+  </ul>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
