@@ -8,15 +8,15 @@ export const store = reactive({
   fetchedMovies: [],
   fetchedTvShows: [],
   flags: {
-    "it": "./assets/imgs/Italia.png",
-    "en": "./assets/imgs/gb.webp",
-    "es": "./assets/imgs/es.webp",
-    "fr": "./assets/imgs/fr.png",
-    "ru": "./assets/imgs/ru.png",
-    "ko": "./assets/imgs/kr.webp",
-    "jp": "./assets/imgs/jp.webp",
-    "sv": "./assets/imgs/se.png",
-    "cn": "./assets/imgs/cn.webp",
+    "it": "/src/assets/imgs/Italia.png",
+    "en": "/src/assets/imgs/gb.webp",
+    "es": "/src/assets/imgs/es.webp",
+    "fr": "/src/assets/imgs/fr.png",
+    "ru": "/src/assets/imgs/ru.png",
+    "ko": "/src/assets/imgs/kr.webp",
+    "jp": "/src/assets/imgs/jp.webp",
+    "sv": "/src/assets/imgs/se.png",
+    "cn": "/src/assets/imgs/cn.webp",
   },
   
 
@@ -57,7 +57,7 @@ export const store = reactive({
   langToFlag(lang) {
     let flag = this.flags[lang];
     if (flag) {
-      return `<img src="${flag}" alt="${lang}">`;
+      return `<img src="${flag}">`;
     } else {
       return "Bandiera non disponibile";
     }
