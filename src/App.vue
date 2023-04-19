@@ -21,8 +21,8 @@ export default {
     <button @click="store.fetchMovies()">Send</button>
     <ul>
       <li v-for="(movie, index) in store.fetchedMovies">
-        <h2>Movie {{ index }}</h2>
-        <p>Title: {{ movie.title }}</p>
+        <p>---movie {{ index }}</p>
+        <h3>Title: {{ movie.title }}</h3>
         <p>Original title: {{ movie.original_title }}</p>
         <p>Language: {{ movie.original_language }}</p>
         <p>Score: {{ movie.vote_average }}</p>

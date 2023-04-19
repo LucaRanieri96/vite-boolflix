@@ -1,4 +1,8 @@
 @use "../styles/partials/_variables.scss" as *;
+*{
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 body{
   background-color: rgb(12, 12, 16);
