@@ -2,31 +2,33 @@
 import { store } from "./store.js";
 
 export default {
-  components: {
-
-  },
+  components: {},
   data() {
     return {
       store,
-      searchValue: "",
     };
   },
-  methods: {
-    search() {
-      console.log(this.searchValue)
-    }
-  },
+  methods: {},
   created() {
-    this.store.fetchCards(this.store.apiUrl);
-  }
+    this.store.fetchMovies();
+  },
 };
 </script>
 
 <template>
-    <div>
-      <input type="text" v-model="searchValue" placeholder="Cerca un film">
-      <button @click="search()">Send</button>
-    </div>
+  <div>
+    <input type="text" v-model="store.searchValue" placeholder="Cerca un film" />
+    <button @click="store.fetchMovies()">Send</button>
+    <ul>
+      <li v-for="(movie, index) in store.fetchedMovies">
+        <h2>Movie {{ index }}</h2>
+        <p>Title: {{ movie.title }}</p>
+        <p>Original title: {{ movie.original_title }}</p>
+        <p>Language: {{ movie.original_language }}</p>
+        <p>Score: {{ movie.vote_average }}</p>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style lang="scss">
