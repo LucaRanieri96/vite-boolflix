@@ -8,14 +8,15 @@ export const store = reactive({
   fetchedMovies: [],
   fetchedTvShows: [],
   flags: {
-    "it": "🇮🇹",
-    "en": "🇬🇧",
-    "es": "🇪🇸",
-    "fr": "🇫🇷",
-    "ru": "🇷🇺",
-    "ko": "🇰🇷",
-    "jp": "🇯🇵",
-    "sv": "🇸🇪",
+    "it": "./assets/imgs/Italia.png",
+    "en": "./assets/imgs/gb.webp",
+    "es": "./assets/imgs/es.webp",
+    "fr": "./assets/imgs/fr.png",
+    "ru": "./assets/imgs/ru.png",
+    "ko": "./assets/imgs/kr.webp",
+    "jp": "./assets/imgs/jp.webp",
+    "sv": "./assets/imgs/se.png",
+    "cn": "./assets/imgs/cn.webp",
   },
   
 
@@ -54,10 +55,9 @@ export const store = reactive({
       });
   },
   langToFlag(lang) {
-
     let flag = this.flags[lang];
     if (flag) {
-      return flag;
+      return `<img src="${flag}" alt="${lang}">`;
     } else {
       return "Bandiera non disponibile";
     }

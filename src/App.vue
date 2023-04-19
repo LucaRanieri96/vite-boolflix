@@ -25,7 +25,7 @@ export default {
         <p>---movie {{ index }}</p>
         <h3>Title: {{ movie.title }}</h3>
         <p>Original title: {{ movie.original_title }}</p>
-        <p>Language: {{ store.langToFlag(movie.original_language) }}</p>
+        <div>{{ store.langToFlag(movie.original_language) }}</div>
         <p>Score: {{ movie.vote_average }}</p>
       </li>
     </ul>
@@ -34,9 +34,11 @@ export default {
         <p>---tvshow {{ index }}</p>
         <h3>Title: {{ tvshow.name }}</h3>
         <p>Original title: {{ tvshow.original_title }}</p>
-        <p>Language: {{ tvshow.original_language }}</p>
+        <div>{{ store.langToFlag(movie.original_language) }}</div>
         <p>Score: {{ tvshow.vote_average }}</p>
       </li>
+      <!-- prova url  -->
+      <div><img src="./assets/imgs/Italia.png" alt=""></div>
     </ul>
   </div>
 </template>
