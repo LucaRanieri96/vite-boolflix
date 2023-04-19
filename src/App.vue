@@ -21,7 +21,7 @@ export default {
 
 <template>
   <div>
-    <input type="text" v-model="store.searchValue" placeholder="Cerca un film" />
+    <input type="text" v-model="store.searchValue" placeholder="Cerca un film" @keyup.enter="store.fetchMovies(), store.fetchTvShow()"/>
     <button @click="store.fetchMovies(), store.fetchTvShow()">Send</button>
     <SiteMain></SiteMain>
   </div>
