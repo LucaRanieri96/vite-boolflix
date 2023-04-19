@@ -25,7 +25,7 @@ export default {
         <p>---movie {{ index }}</p>
         <h3>Title: {{ movie.title }}</h3>
         <p>Original title: {{ movie.original_title }}</p>
-        <p>Language: {{ movie.original_language }}</p>
+        <p>Language: {{ store.langToFlag(movie.original_language) }}</p>
         <p>Score: {{ movie.vote_average }}</p>
       </li>
     </ul>
@@ -33,7 +33,7 @@ export default {
       <li v-for="(tvshow, index) in store.fetchedTvShows">
         <p>---tvshow {{ index }}</p>
         <h3>Title: {{ tvshow.name }}</h3>
-        <p>Original title: {{ tvshow.original_name }}</p>
+        <p>Original title: {{ tvshow.original_title }}</p>
         <p>Language: {{ tvshow.original_language }}</p>
         <p>Score: {{ tvshow.vote_average }}</p>
       </li>
