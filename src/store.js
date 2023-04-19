@@ -18,6 +18,7 @@ export const store = reactive({
     "sv": "/src/assets/imgs/se.png",
     "cn": "/src/assets/imgs/cn.webp",
   },
+  coverUrl: "https://image.tmdb.org/t/p/w185",
   
 
   fetchMovies() {
