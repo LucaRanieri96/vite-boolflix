@@ -13,7 +13,7 @@ export default {
       return Math.round(Number(score) / 2);
     },
     starScore(score) {
-      const stars = Math.round(score / 2);
+      let stars = Math.round(score);
       return stars;
     },
   },
