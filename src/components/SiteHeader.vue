@@ -18,7 +18,7 @@ export default {
         <img src="../assets/imgs/Logonetflix.png" alt="">
       </div>
       <div class="nav_links">
-        <a href="#">Home</a>
+        <a href="#"><strong>Home</strong></a>
         <a href="#">Serie TV</a>
         <a href="#">Film</a>
         <a href="#">Nuovi e popolari</a>
@@ -26,7 +26,7 @@ export default {
         <a href="#">Sfoglia per lingua</a>
       </div>
     </div>
-    <div class="header_right d-flex align-items-center mx-4">
+    <div class="header_right d-flex align-items-center mx-5">
       <input
         class="form-control me-2"
         type="text"

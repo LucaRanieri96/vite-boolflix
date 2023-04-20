@@ -21,42 +21,75 @@ export default {
 </script>
 
 <template>
-  <!-- FILM -->
-  <ul>
-    <li v-for="(movie, index) in store.fetchedMovies">
-      <p>---movie {{ index }}</p>
-      <img :src="`${store.coverUrl}${movie.poster_path}`" />
-      <h3>Title: {{ movie.title }}</h3>
-      <p>Original title: {{ movie.original_title }}</p>
-      <div v-html="store.langToFlag(movie.original_language)"></div>
-      <div>
-        <p>Score: {{ changeScore(movie.vote_average) }}</p>
-        <span
-          v-for="star in starScore(changeScore(movie.vote_average))"
-          :key="star"
-          >⭐️</span
-        >
+  <main>
+    <!-- FILM -->
+    <div class="container-fluid">
+      <ul class="row flex-row">
+        <li class="col-2" v-for="movie in store.fetchedMovies">
+          <div class="card text-bg-dark">
+            <img
+              class="card-img"
+              :src="`${store.coverUrl}${movie.poster_path}`"
+            />
+            <div class="card-img-overlay">
+              <h4>{{ movie.title }}</h4>
+              <p class="card-text mb-4">
+                Original title: {{ movie.original_title }}
+              </p>
+              <div>
+                <div v-html="store.langToFlag(movie.original_language)"></div>
+              </div>
+              <div>
+                <p>Score: {{ changeScore(movie.vote_average) }}</p>
+                <span
+                  v-for="star in starScore(changeScore(movie.vote_average))"
+                  :key="star"
+                  >⭐️</span
+                >
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- TVSHOW -->
+    <div class="container-fluid">
+        <ul class="row flex-row">
+          <li class="col-2" v-for="tvshow in store.fetchedTvShows">
+            <div class="card text-bg-dark">
+              <img
+                class="card-img"
+                :src="`${store.coverUrl}${tvshow.poster_path}`"
+              />
+              <div class="card-img-overlay">
+                <h4>{{ tvshow.name }}</h4>
+                <p class="card-text mb-4">
+                  Original title: {{ tvshow.original_title }}
+                </p>
+                <div>
+                  <div v-html="store.langToFlag(tvshow.original_language)"></div>
+                </div>
+                <div>
+                  <p>Score: {{ changeScore(tvshow.vote_average) }}</p>
+                  <span
+                    v-for="star in starScore(changeScore(tvshow.vote_average))"
+                    :key="star"
+                    >⭐️</span
+                  >
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-    </li>
-  </ul>
-  <!-- TVSHOW -->
-  <ul>
-    <li v-for="(tvshow, index) in store.fetchedTvShows">
-      <p>---tvshow {{ index }}</p>
-      <img :src="`${store.coverUrl}${tvshow.poster_path}`" />
-      <h3>Title: {{ tvshow.name }}</h3>
-      <p>Original title: {{ tvshow.original_title }}</p>
-      <div v-html="store.langToFlag(movie.original_language)"></div>
-      <div>
-        <p>Score: {{ changeScore(tvshow.vote_average) }}</p>
-        <span
-          v-for="star in starScore(changeScore(tvshow.vote_average))"
-          :key="star"
-          >⭐️</span
-        >
-      </div>
-    </li>
-  </ul>
+  </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+ul,h4,p {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+</style>

@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const store = reactive({
   apiUrlMovies: "https://api.themoviedb.org/3/search/movie?api_key=6148d52a02fe2b51e6f0b4078dcb1be4",
-  apiUrlTvShow: "https://api.themoviedb.org/3/search/tv?api_key=6148d52a02fe2b51e6f0b4078dcb1be4&language=en-US&page=1&include_adult=false",
+  apiUrlTvShow: "https://api.themoviedb.org/3/search/tv?api_key=6148d52a02fe2b51e6f0b4078dcb1be4",
   searchValue: "",
   fetchedMovies: [],
   fetchedTvShows: [],
@@ -18,7 +18,7 @@ export const store = reactive({
     "sv": "/src/assets/imgs/se.png",
     "cn": "/src/assets/imgs/cn.webp",
   },
-  coverUrl: "https://image.tmdb.org/t/p/w185",
+  coverUrl: "https://image.tmdb.org/t/p/w342",
   
 
   fetchMovies() {
@@ -58,7 +58,7 @@ export const store = reactive({
   langToFlag(lang) {
     let flag = this.flags[lang];
     if (flag) {
-      return `<img src="${flag}" alt="${lang}">`;
+      return `<img src="${flag}" alt="${lang}" style="width: 50px;">`;
     } else {
       return lang;
     }
