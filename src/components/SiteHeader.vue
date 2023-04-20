@@ -28,13 +28,14 @@ export default {
     </div>
     <div class="header_right d-flex align-items-center mx-5">
       <input
-        class="form-control me-2"
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-        v-model="store.searchValue"
-        @keyup.enter="store.fetchMovies(), store.fetchTvShow()"
+      class="form-control me-2"
+      type="text"
+      placeholder="Search"
+      aria-label="Search"
+      v-model="store.searchValue"
+      @keyup.enter="store.fetchMovies(), store.fetchTvShow()"
       />
+
       <button
         class="btn btn-outline-success"
         type="submit"
@@ -66,6 +67,13 @@ header{
     text-decoration: none;
     color: white;
     margin-right: 1rem;
+  }
+}
+
+.header_right{
+  input{
+    background-color: rgb(46, 46, 46);
+    color: white;
   }
 }
 </style>
