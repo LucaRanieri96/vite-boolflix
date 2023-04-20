@@ -24,8 +24,9 @@ export default {
   <main>
     <div class="container-fluid">
       <!-- TVSHOW -->
+      <h2>Tv Show</h2>
       <ul class="row flex-row">
-        <li class="col-2" v-for="tvshow in store.fetchedTvShows">
+        <li class="col-2 my-2" v-for="tvshow in store.fetchedTvShows">
           <div class="card text-bg-dark">
             <img
               class="card-img"
@@ -51,9 +52,9 @@ export default {
           </div>
         </li>
       </ul>
-      <!-- FILM -->
+      <h2>Film</h2>
       <ul class="row flex-row">
-        <li class="col-2" v-for="movie in store.fetchedMovies">
+        <li class="col-2 my-2" v-for="movie in store.fetchedMovies">
           <div class="card text-bg-dark">
             <img
               class="card-img"

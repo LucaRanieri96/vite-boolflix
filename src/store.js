@@ -48,7 +48,7 @@ export const store = reactive({
       .get(url)
       .then((response) => {
         console.log(response.data.results);
-        this.fetchedTvShow = response.data.results;
+        this.fetchedTvShows = response.data.results;
         
       })
       .catch((error) => {
