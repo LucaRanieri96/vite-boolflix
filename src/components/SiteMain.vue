@@ -22,7 +22,7 @@ export default {
 
 <template>
   <main>
-    <div class="container-fluid">
+    <div class="container-fluid p-5">
       <!-- TVSHOW -->
       <h2>Tv Show</h2>
       <ul class="row flex-row">
@@ -91,5 +91,20 @@ ul,h4,p {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+.card-img-overlay {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.card:hover {
+  .card-img-overlay {
+    opacity: 1;
+  }
+  .card-img{
+    opacity: 0.2;
+  }
+  
 }
 </style>
