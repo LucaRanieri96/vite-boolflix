@@ -37,6 +37,7 @@ export default {
               <p class="card-text mb-4">
                 Original title: {{ tvshow.original_name }}
               </p>
+              <p class="card-text">{{ tvshow.overview }}</p>
               <div>
                 <div v-html="store.langToFlag(tvshow.original_language)"></div>
               </div>
@@ -65,6 +66,7 @@ export default {
               <p class="card-text mb-4">
                 Original title: {{ movie.original_title }}
               </p>
+              <p class="card-text">{{ movie.overview }}</p>
               <div>
                 <div v-html="store.langToFlag(movie.original_language)"></div>
               </div>
@@ -99,6 +101,7 @@ ul,h4,p {
 }
 
 .card:hover {
+  overflow-y: auto;
   .card-img-overlay {
     opacity: 1;
   }
