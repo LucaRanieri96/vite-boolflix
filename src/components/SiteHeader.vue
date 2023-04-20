@@ -37,7 +37,7 @@ export default {
       />
 
       <button
-        class="btn btn-outline-success"
+        class="btn btn-outline-danger"
         type="submit"
         @click="store.fetchMovies(), store.fetchTvShow()"
       >
@@ -50,8 +50,16 @@ export default {
 <style scoped lang="scss">
 header{
   height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-image: linear-gradient(to bottom, black 10%, rgba(12,12,16,0.5));
   .header_right {
     width: 20%;
+    input{
+    background-color: rgb(46, 46, 46);
+    color: white;
+  }
   }
 
 }
@@ -70,10 +78,4 @@ header{
   }
 }
 
-.header_right{
-  input{
-    background-color: rgb(46, 46, 46);
-    color: white;
-  }
-}
 </style>
