@@ -30,7 +30,8 @@ export default {
           <div class="card text-bg-dark">
             <img
               class="card-img"
-              :src="`${store.coverUrl}${tvshow.poster_path}`"
+              :src="tvshow.poster_path ? `${store.coverUrl}${tvshow.poster_path}`: 'src/assets/imgs/placeholder_image.jpg'
+              "
             />
             <div class="card-img-overlay">
               <h4>{{ tvshow.name }}</h4>
@@ -55,11 +56,12 @@ export default {
       </ul>
       <h2>Film</h2>
       <ul class="row flex-row">
-        <li class="col-2 my-2" v-for="movie in store.fetchedMovies">
+        <li class="col-2 my-2 d-flex" v-for="movie in store.fetchedMovies">
           <div class="card text-bg-dark">
             <img
               class="card-img"
-              :src="`${store.coverUrl}${movie.poster_path}`"
+              :src="movie.poster_path ? `${store.coverUrl}${movie.poster_path}`: 'src/assets/imgs/placeholder_image.jpg'
+              "
             />
             <div class="card-img-overlay">
               <h4>{{ movie.title }}</h4>
@@ -73,9 +75,9 @@ export default {
               <div>
                 <p>Score: {{ changeScore(movie.vote_average) }}</p>
                 <span
-                v-for="star in starScore(changeScore(movie.vote_average))"
-                :key="star"
-                >⭐️</span
+                  v-for="star in starScore(changeScore(movie.vote_average))"
+                  :key="star"
+                  >⭐️</span
                 >
               </div>
             </div>
@@ -83,13 +85,13 @@ export default {
         </li>
       </ul>
     </div>
-    
   </main>
 </template>
 
 <style lang="scss" scoped>
-
-ul,h4,p {
+ul,
+h4,
+p {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -97,17 +99,30 @@ ul,h4,p {
 
 .card-img-overlay {
   opacity: 0;
+  display: none;
   transition: opacity 0.5s;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  img{
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .card:hover {
   overflow-y: auto;
   .card-img-overlay {
     opacity: 1;
+    display: block;
   }
-  .card-img{
+  .card-img {
     opacity: 0.2;
   }
-  
+}
+.card:not(:hover) .card-img-overlay {
+  transition: 0s;
 }
 </style>
