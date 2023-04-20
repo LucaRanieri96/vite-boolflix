@@ -35,7 +35,7 @@ export default {
             <div class="card-img-overlay">
               <h4>{{ tvshow.name }}</h4>
               <p class="card-text mb-4">
-                Original title: {{ tvshow.original_title }}
+                Original title: {{ tvshow.original_name }}
               </p>
               <div>
                 <div v-html="store.langToFlag(tvshow.original_language)"></div>
