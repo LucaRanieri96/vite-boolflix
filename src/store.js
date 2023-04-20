@@ -32,6 +32,7 @@ export const store = reactive({
         console.log(response.data.results);
         this.fetchedMovies = response.data.results;
         
+        
       })
       .catch((error) => {
         console.log(error);
