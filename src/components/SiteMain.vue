@@ -21,6 +21,7 @@ export default {
 </script>
 
 <template>
+  <!-- FILM -->
   <ul>
     <li v-for="(movie, index) in store.fetchedMovies">
       <p>---movie {{ index }}</p>
@@ -30,10 +31,15 @@ export default {
       <div v-html="store.langToFlag(movie.original_language)"></div>
       <div>
         <p>Score: {{ changeScore(movie.vote_average) }}</p>
-        <span v-for="star in starScore(changeScore(movie.vote_average))" :key="star">⭐️</span>
+        <span
+          v-for="star in starScore(changeScore(movie.vote_average))"
+          :key="star"
+          >⭐️</span
+        >
       </div>
     </li>
   </ul>
+  <!-- TVSHOW -->
   <ul>
     <li v-for="(tvshow, index) in store.fetchedTvShows">
       <p>---tvshow {{ index }}</p>
@@ -43,7 +49,11 @@ export default {
       <div v-html="store.langToFlag(movie.original_language)"></div>
       <div>
         <p>Score: {{ changeScore(tvshow.vote_average) }}</p>
-        <span v-for="star in starScore(changeScore(tvshow.vote_average))" :key="star">⭐️</span>
+        <span
+          v-for="star in starScore(changeScore(tvshow.vote_average))"
+          :key="star"
+          >⭐️</span
+        >
       </div>
     </li>
   </ul>
