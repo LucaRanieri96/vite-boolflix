@@ -1,12 +1,8 @@
 <script>
 import { store } from "../store.js";
-import SearchList from "./SearchLists.vue";
 
 export default {
   name: "SiteMain",
-  components: {
-    SearchList,
-  },
   data() {
     return {
       store,
@@ -30,26 +26,26 @@ export default {
       <!-- TVSHOW -->
       <h2>Tv Show</h2>
       <ul class="row flex-row">
-        <li class="col-2 my-2" v-for="tvshow in store.fetchedTvShows">
+        <li class="col-2 my-2" v-for="series in store.series">
           <div class="card text-bg-dark">
             <img
               class="card-img"
-              :src="tvshow.poster_path ? `${store.coverUrl}${tvshow.poster_path}`: 'src/assets/imgs/placeholder_image.jpg'
+              :src="series.poster_path ? `${store.coverUrl}${series.poster_path}`: 'src/assets/imgs/placeholder_image.jpg'
               "
             />
             <div class="card-img-overlay">
-              <h4>{{ tvshow.name }}</h4>
+              <h4>{{ series.name }}</h4>
               <p class="card-text mb-4">
-                Original title: {{ tvshow.original_name }}
+                Original title: {{ series.original_name }}
               </p>
-              <p class="card-text">{{ tvshow.overview }}</p>
+              <p class="card-text">{{ series.overview }}</p>
               <div>
-                <div v-html="store.langToFlag(tvshow.original_language)"></div>
+                <div v-html="store.langToFlag(series.original_language)"></div>
               </div>
               <div>
-                <p>Score: {{ changeScore(tvshow.vote_average) }}</p>
+                <p>Score: {{ changeScore(series.vote_average) }}</p>
                 <span
-                  v-for="star in starScore(changeScore(tvshow.vote_average))"
+                  v-for="star in starScore(changeScore(series.vote_average))"
                   :key="star"
                   >⭐️</span
                 >
@@ -60,7 +56,7 @@ export default {
       </ul>
       <h2>Film</h2>
       <ul class="row flex-row">
-        <li class="col-2 my-2 d-flex" v-for="movie in store.fetchedMovies">
+        <li class="col-2 my-2 d-flex" v-for="movie in store.movies">
           <div class="card text-bg-dark">
             <img
               class="card-img"
@@ -80,9 +76,7 @@ export default {
                 <p>Score: {{ changeScore(movie.vote_average) }}</p>
                 <span
                   v-for="star in starScore(changeScore(movie.vote_average))"
-                  :key="star"
-                  >⭐️</span
-                >
+                  :key="star">⭐️</span>
               </div>
             </div>
           </div>
@@ -90,7 +84,6 @@ export default {
       </ul>
     </div>
   </main>
-  <SearchList></SearchList>
 </template>
 
 <style lang="scss" scoped>
