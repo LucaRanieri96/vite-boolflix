@@ -2,6 +2,7 @@
 import SiteHeader from "./components/SiteHeader.vue";
 import SiteMain from "./components/SiteMain.vue";
 
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 export default {
   components: {
