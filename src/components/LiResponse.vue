@@ -37,12 +37,12 @@ export default {
             : 'src/assets/imgs/placeholder_image.jpg'"/>
       <div class="card-img-overlay">
         <div>
-          <h3 v-if="movie.title">{{ item.title }}</h3>
+          <h3 v-if="item.title">{{ item.title }}</h3>
           <h3 v-else>{{ item.name }}</h3>
         </div>
-        <p v-if="movie.release_date">{{ item.release_date }}</p>
+        <p v-if="item.release_date">{{ item.release_date }}</p>
         <p v-else>{{ item.first_air_date }}</p>
-        <p class="card-text mb-4" v-if="movie.original_title">
+        <p class="card-text mb-4" v-if="item.original_title">
           <strong>Original title:</strong> "{{ item.original_title }}"
         </p>
         <p class="card-text mb-4" v-else>
