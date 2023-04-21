@@ -46,9 +46,7 @@ export default {
                 <p>Score: {{ changeScore(series.vote_average) }}</p>
                 <span
                   v-for="star in starScore(changeScore(series.vote_average))"
-                  :key="star"
-                  >⭐️</span
-                >
+                  :key="star">⭐️</span>
               </div>
             </div>
           </div>
