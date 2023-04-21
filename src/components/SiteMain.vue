@@ -1,8 +1,12 @@
 <script>
 import { store } from "../store.js";
+import SearchList from "./SearchLists.vue";
 
 export default {
   name: "SiteMain",
+  components: {
+    SearchList,
+  },
   data() {
     return {
       store,
@@ -86,6 +90,7 @@ export default {
       </ul>
     </div>
   </main>
+  <SearchList></SearchList>
 </template>
 
 <style lang="scss" scoped>

@@ -19,49 +19,48 @@ export const store = reactive({
     "cn": "/src/assets/imgs/cn.webp",
   },
   coverUrl: "https://image.tmdb.org/t/p/w342",
-  
 
-  fetchMovies() {
-    let url = `${this.apiUrlMovies}&query=${this.searchValue}`;
+   fetchMovies() {
+     let url = `${this.apiUrlMovies}&query=${this.searchValue}`;
 
-    console.log(url);
-    console.log(this.searchValue);
-    axios
-      .get(url)
-      .then((response) => {
-        console.log(response.data.results);
-        this.fetchedMovies = response.data.results;
+     console.log(url);
+     console.log(this.searchValue);
+     axios
+       .get(url)
+       .then((response) => {
+         console.log(response.data.results);
+         this.fetchedMovies = response.data.results;
         
         
-      })
-      .catch((error) => {
-        console.log(error);
-        console.error(error.message);
-      });
-  },
-  fetchTvShow() {
-    let url = `${this.apiUrlTvShow}&query=${this.searchValue}`;
+       })
+       .catch((error) => {
+         console.log(error);
+         console.error(error.message);
+       });
+   },
+   fetchTvShow() {
+     let url = `${this.apiUrlTvShow}&query=${this.searchValue}`;
 
-    console.log(url);
-    console.log(this.searchValue);
-    axios
-      .get(url)
-      .then((response) => {
-        console.log(response.data.results);
-        this.fetchedTvShows = response.data.results;
+     console.log(url);
+     console.log(this.searchValue);
+     axios
+       .get(url)
+       .then((response) => {
+         console.log(response.data.results);
+         this.fetchedTvShows = response.data.results;
         
-      })
-      .catch((error) => {
-        console.log(error);
-        console.error(error.message);
-      });
-  },
+       })
+       .catch((error) => {
+         console.log(error);
+         console.error(error.message);
+       });
+   },
   langToFlag(lang) {
     let flag = this.flags[lang];
     if (flag) {
       return `<img src="${flag}" alt="${lang}" style="width: 50px;">`;
     } else {
-      return lang;
+      return `Lingua: ${lang}`;
     }
   }
 });

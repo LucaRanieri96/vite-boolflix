@@ -1,11 +1,13 @@
 <script>
 import { store } from "../store.js";
+import { state } from "../state.js";
 
 export default {
   name: "SiteHeader",
   data() {
     return {
       store,
+      state,
     };
   },
 };
@@ -33,13 +35,13 @@ export default {
       placeholder="Search"
       aria-label="Search"
       v-model="store.searchValue"
-      @keyup.enter="store.fetchMovies(), store.fetchTvShow()"
+      @keyup.enter="store.fetchMovies(), store.fetchTvShow(), state.fetchAllResult()"
       />
 
       <button
         class="btn btn-outline-danger"
         type="submit"
-        @click="store.fetchMovies(), store.fetchTvShow()"
+        @click="store.fetchMovies(), store.fetchTvShow(), state.fetchAllResult()"
       >
         Search
       </button>
