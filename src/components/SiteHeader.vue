@@ -35,13 +35,13 @@ export default {
       placeholder="Search"
       aria-label="Search"
       v-model="store.searchValue"
-      @keyup.enter="store.fetchMovies(), store.fetchTvShow(), state.fetchAllResult()"
+      @keyup.enter="store.fetchMovies(), store.fetchTvShow()"
       />
 
       <button
         class="btn btn-outline-danger"
         type="submit"
-        @click="store.fetchMovies(), store.fetchTvShow(), state.fetchAllResult()"
+        @click=" state.fetchAllResult()"
       >
         Search
       </button>

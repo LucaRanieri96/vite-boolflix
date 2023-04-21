@@ -7,10 +7,10 @@ export const state = reactive({
   apiUrlTvShow:
     "https://api.themoviedb.org/3/search/tv?api_key=6148d52a02fe2b51e6f0b4078dcb1be4",
   coverUrl: "https://image.tmdb.org/t/p/w342",
-  searchValue: "",
+  searchValue: "test",
   allResults: {
-    movies: null,
-    series: null,
+    movies: [],
+    series: [],
   },
 
   getMovies() {
@@ -28,10 +28,10 @@ export const state = reactive({
 
     Promise.all([axios.get(movie_url), axios.get(series_url)])
       .then(([movies, series]) => {
-        console.log(movies.data);
-        console.log(series.data);
-        this.allResults.movies = movies.data;
-        this.allResults.series = series.data;
+        console.log(movies.data.results);
+        console.log(series.data.results);
+        this.movies = movies.data.results;
+        this.series = series.data.results;
       })
       .catch((error) => {
         console.log(error);

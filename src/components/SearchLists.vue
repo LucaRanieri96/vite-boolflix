@@ -11,40 +11,25 @@ export default {
 </script>
 
 <template>
- <main>
+  <main>
+    <h1>TEST</h1>
     <div class="container-fluid p-5">
-      <!-- TVSHOW -->
-      <ul class="row flex-row">
-        <li class="col-2 my-2" v-for="tvshow in state.series">
-          <div class="card text-bg-dark">
-            <img
-              class="card-img"
-              :src="tvshow.poster_path ? `${state.coverUrl}${tvshow.poster_path}`: 'src/assets/imgs/placeholder_image.jpg'
-              "
-            />
-            <div class="card-img-overlay">
-              <h4>{{ tvshow.name }}</h4>
-              <p class="card-text mb-4">
-                Original title: {{ tvshow.original_name }}
-              </p>
-              <p class="card-text">{{ tvshow.overview }}</p>
-              <div>
-                <div v-html="state.langToFlag(tvshow.original_language)"></div>
-              </div>
-              <div>
-                <p>Score: {{ changeScore(tvshow.vote_average) }}</p>
-                <span
-                  v-for="star in starScore(changeScore(tvshow.vote_average))"
-                  :key="star"
-                  >⭐️</span
-                >
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
+      <div v-for="movie in state.movies">
+        <div v-if="movie">
+            <h2>{{ movie.title }}</h2>
+            <h2>{{ movie.vote_average }}</h2>
+        </div>
+        <div v-else>
+          <h2>{{ series.title }}</h2>
+          <h2>{{ series.vote_average }}</h2>
+        </div>
+      </div>
     </div>
   </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+main{
+    color: white;
+}
+</style>
