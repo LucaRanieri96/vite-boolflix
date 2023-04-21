@@ -14,28 +14,28 @@ export const state = reactive({
   },
 
   getMovies() {
-    const movie_url = `${this.apiUrlMovies}&query=${this.searchValue}`;
     return axios.get(movie_url);
   },
 
   getSeries() {
-    const series_url = `${this.apiUrlTvShow}&query=${this.searchValue}`;
     return axios.get(series_url);
   },
 
   fetchAllResult() {
+    const movie_url = `${this.apiUrlMovies}&query=${this.searchValue}`;
+    const series_url = `${this.apiUrlTvShow}&query=${this.searchValue}`;
     console.log(`Fetch result`);
 
-     Promise.all([axios.get(movie_url), axios.get(series_url)])
-    .then(([movies, series]) => {
-      console.log(movies.data);
-      console.log(series.data);
-      this.allResults.movies = movies.data;
-      this.allResults.series = series.data;
-    })
-    .catch((error) => {
-      console.log(error);
-      console.error(error.message);
-    });
+    Promise.all([axios.get(movie_url), axios.get(series_url)])
+      .then(([movies, series]) => {
+        console.log(movies.data);
+        console.log(series.data);
+        this.allResults.movies = movies.data;
+        this.allResults.series = series.data;
+      })
+      .catch((error) => {
+        console.log(error);
+        console.error(error.message);
+      });
   },
 });

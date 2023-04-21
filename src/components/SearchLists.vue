@@ -14,9 +14,8 @@ export default {
  <main>
     <div class="container-fluid p-5">
       <!-- TVSHOW -->
-      <h2>Tv Show</h2>
       <ul class="row flex-row">
-        <li class="col-2 my-2" v-for="tvshow in state.allResults.series">
+        <li class="col-2 my-2" v-for="tvshow in state.series">
           <div class="card text-bg-dark">
             <img
               class="card-img"
