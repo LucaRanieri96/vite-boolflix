@@ -17,34 +17,47 @@ export default {
       return stars;
     },
   },
+  computed: {
+    seriesMovies(){
+      let seriesMovie = this.store.allResults.movies.concat(this.store.allResults.series);
+      return seriesMovie
+    }
+  }
 };
 </script>
 
 <template>
-  <li class="col-2 my-2 d-flex" v-for="movie in store.movies">
+  <li class="col-2 my-2 d-flex" v-for="item in seriesMovies">
     <div class="card text-bg-dark">
       <img
         class="card-img"
         :src="
-          movie.poster_path
-            ? `${store.coverUrl}${movie.poster_path}`
+          item.poster_path
+            ? `${store.coverUrl}${item.poster_path}`
             : 'src/assets/imgs/placeholder_image.jpg'"/>
       <div class="card-img-overlay">
-        <h3>{{ movie.title }}</h3>
-        <p>{{ movie.release_date }}</p>
-        <p class="card-text mb-4">
-          <strong>Original title:</strong> "{{ movie.original_title }}"
+        <div>
+          <h3 v-if="movie.title">{{ item.title }}</h3>
+          <h3 v-else>{{ item.name }}</h3>
+        </div>
+        <p v-if="movie.release_date">{{ item.release_date }}</p>
+        <p v-else>{{ item.first_air_date }}</p>
+        <p class="card-text mb-4" v-if="movie.original_title">
+          <strong>Original title:</strong> "{{ item.original_title }}"
+        </p>
+        <p class="card-text mb-4" v-else>
+          <strong>Original title:</strong> "{{ item.original_name }}"
         </p>
         <p class="card-text">
-          <strong>Description:</strong> {{ movie.overview }}
+          <strong>Description:</strong> {{ item.overview }}
         </p>
         <div class="my-2">
-          <div v-html="store.langToFlag(movie.original_language)"></div>
+          <div v-html="store.langToFlag(item.original_language)"></div>
         </div>
         <div class="pb-3">
-          <p><strong>Score(1to10):</strong> {{ movie.vote_average }}</p>
+          <p><strong>Score(1to10):</strong> {{ item.vote_average }}</p>
           <span
-            v-for="star in starScore(changeScore(movie.vote_average))"
+            v-for="star in starScore(changeScore(item.vote_average))"
             :key="star"
             >⭐️</span
           >

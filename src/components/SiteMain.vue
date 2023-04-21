@@ -4,10 +4,13 @@ import LiResponse from "./LiResponse.vue";
 
 export default {
   name: "SiteMain",
+  components: {
+    LiResponse
+  },
   data() {
     return {
       store,
-      LiResponse,
+      
     };
   },
 };
