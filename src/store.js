@@ -42,8 +42,8 @@ export const store = reactive({
       .then(([movies, series]) => {
         console.log(movies.data.results);
         console.log(series.data.results);
-        this.movies = movies.data.results;
-        this.series = series.data.results;
+        this.allResults.movies = movies.data.results;
+        this.allResults.series = series.data.results;
       })
       .catch((error) => {
         console.log(error);

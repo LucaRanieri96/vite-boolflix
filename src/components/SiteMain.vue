@@ -24,11 +24,6 @@ export default {
       <ul class="row flex-row">
         <LiResponse></LiResponse>
       </ul>
-      <!-- TVSHOW -->
-      <h2>Tv Show</h2>
-      <ul class="row flex-row">
-        <LiResponse></LiResponse>
-      </ul>
     </div>
   </main>
 </template>
